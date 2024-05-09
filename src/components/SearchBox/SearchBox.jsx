@@ -1,14 +1,14 @@
-import { useDispatch } from "react-redux";
-import { changeFilter } from "../../redux/filtersSlice";
 import { useId } from "react";
+import { useDispatch } from "react-redux";
+import { changeFilter } from "../../redux/filters/slice";
 import css from "./SearchBox.module.css";
 
-function SearchBox(filterValue) {
+function SearchBox({ filterValue }) {
   const findFieldId = useId();
   const dispatch = useDispatch();
- return (
+  return (
     <div className={css.search}>
-      <label htmlFor="filter" className={css.label}>
+      <label htmlFor={findFieldId} className={css.label}>
         Find Contact
       </label>
       <input

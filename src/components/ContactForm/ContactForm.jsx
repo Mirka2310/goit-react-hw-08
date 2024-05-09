@@ -3,7 +3,7 @@ import { useId } from "react";
 import { useDispatch } from "react-redux";
 import css from "./ContactForm.module.css";
 import * as Yup from "yup";
-import { addContact } from "../../redux/contactsOps";
+import { addContact } from "../../redux/contacts/operations";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
@@ -27,14 +27,13 @@ function ContactForm() {
   }
   return (
     <Formik
-  initialValues={{
-    name: "",
-    number: "",
-  }}
-  onSubmit={handleSubmit}
-  validationSchema={FeedbackSchema}
->
-
+      initialValues={{
+        name: "",
+        number: "",
+      }}
+      onSubmit={handleSubmit}
+      validationSchema={FeedbackSchema}
+    >
       <Form className={css.form}>
         <label name="name" htmlFor={nameId} className={css.label}>
           Name
